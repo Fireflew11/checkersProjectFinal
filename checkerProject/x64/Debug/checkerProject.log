@@ -1,0 +1,6 @@
+﻿  DamkaProjectMain.c
+C:\Users\Tom\source\repos\checkersProjectFinal\checkerProject\checkerProject\DamkaProjectMain.c(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Tom\source\repos\checkersProjectFinal\checkerProject\checkerProject\DamkaProjectMain.c(36,15): warning C4101: 'pos': unreferenced local variable
+C:\Users\Tom\source\repos\checkersProjectFinal\checkerProject\checkerProject\DamkaProjectMain.c(34,25): warning C4101: 'lst': unreferenced local variable
+C:\Users\Tom\source\repos\checkersProjectFinal\checkerProject\checkerProject\DamkaProjectMain.c(35,25): warning C4101: 'tr': unreferenced local variable
+  checkerProject.vcxproj -> C:\Users\Tom\source\repos\checkersProjectFinal\checkerProject\x64\Debug\checkerProject.exe
