@@ -36,14 +36,7 @@ void main() {
 	checkersPos* pos;
 	createBoard(board);
 
-	PlayGame(board, 'T');
-
-
-
-
-
-	/*createBoard(board);*/
-	//PlayGame(board, 'T');
+	PlayGame(board, PLAYER_B);
 
 
 }

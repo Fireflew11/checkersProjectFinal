@@ -10,11 +10,11 @@ void copyBoard(Board boardRes, Board boardfrom) {
 	}
 }
 void createBoard(Board res) {
-	char curChar = 'T';
+	char curChar = PLAYER_T;
 	for (int i = 0; i < BOARD_SIZE; i++)
 	{
 		if (i == 3)
-			curChar = 'B';
+			curChar = PLAYER_B;
 		for (int j = 0; j < BOARD_SIZE; j++)
 		{
 			if (i < 3 || i > 4) {

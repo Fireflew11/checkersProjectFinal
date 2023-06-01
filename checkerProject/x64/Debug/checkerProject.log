@@ -1,6 +1,11 @@
 ﻿  DamkaProjectMain.c
-C:\Users\Tom\source\repos\checkersProjectFinal\checkerProject\checkerProject\DamkaProjectMain.c(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Tom\source\repos\checkersProjectFinal\checkerProject\checkerProject\DamkaProjectMain.c(36,15): warning C4101: 'pos': unreferenced local variable
-C:\Users\Tom\source\repos\checkersProjectFinal\checkerProject\checkerProject\DamkaProjectMain.c(34,25): warning C4101: 'lst': unreferenced local variable
-C:\Users\Tom\source\repos\checkersProjectFinal\checkerProject\checkerProject\DamkaProjectMain.c(35,25): warning C4101: 'tr': unreferenced local variable
-  checkerProject.vcxproj -> C:\Users\Tom\source\repos\checkersProjectFinal\checkerProject\x64\Debug\checkerProject.exe
+C:\Users\Tom\Desktop\projFinalFinal\checkersProjectFinal\checkerProject\DamkaProjectMain.c(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Tom\Desktop\projFinalFinal\checkersProjectFinal\checkerProject\DamkaProjectMain.c(36,15): warning C4101: 'pos': unreferenced local variable
+C:\Users\Tom\Desktop\projFinalFinal\checkersProjectFinal\checkerProject\DamkaProjectMain.c(34,25): warning C4101: 'lst': unreferenced local variable
+C:\Users\Tom\Desktop\projFinalFinal\checkersProjectFinal\checkerProject\DamkaProjectMain.c(35,25): warning C4101: 'tr': unreferenced local variable
+  MultipleSourceMoves.c
+C:\Users\Tom\Desktop\projFinalFinal\checkersProjectFinal\checkerProject\MultipleSourceMoves.c(9,12): warning C4133: 'return': incompatible types - from 'MultipleSourceMovesList *' to 'MultipleSourceMovesListCell *'
+C:\Users\Tom\Desktop\projFinalFinal\checkersProjectFinal\checkerProject\MultipleSourceMoves.c(56,1): warning C4133: 'initializing': incompatible types - from 'MultipleSourceMovesListCell *' to 'MultipleSourceMovesList *'
+  Turns.c
+  Generating Code...
+  checkerProject.vcxproj -> C:\Users\Tom\Desktop\projFinalFinal\checkersProjectFinal\x64\Debug\checkerProject.exe

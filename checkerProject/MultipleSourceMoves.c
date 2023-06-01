@@ -27,6 +27,7 @@ void insertMultiToEndList(MultipleSourceMovesList* lst, MultipleSourceMovesListC
 
 void addTailToList(SingleSourceMovesList* lst) {
 	SingleSourceMovesListCell* curCell = lst->head;
+
 	while (curCell->next != NULL) {
 		curCell = curCell->next;
 	}

@@ -6,6 +6,8 @@
 #define TYPE_FLAG_T 1
 #define TYPE_FLAG_B -1
 #define BOARD_SIZE 8
+#define PLAYER_T 'T'
+#define PLAYER_B 'B'
 typedef unsigned char Board[BOARD_SIZE][BOARD_SIZE];
 typedef unsigned char Player;
 typedef struct _checkersPos

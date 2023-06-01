@@ -43,7 +43,7 @@ SingleSourceMovesTreeNode* FindSingleSourcesMovesHelper(Board board, checkersPos
 			nextRightPos = createNewPos(src->row + typeFlag, src->col + 1);
 		//if 1 move to the right is enemy piece and space after it (make sure no edge after it), we can capture it
 		else if (board[src->row + typeFlag - 'A'][src->col + 1 - '1'] == otherType &&
-			(src->col != '7' && !(src->row == 'G' && type == 'T') && !(src->row == 'B' && type == 'B') && board[src->row + 2 * typeFlag - 'A'][src->col + 2 - '1'] == ' '))
+			(src->col != '7' && !(src->row == 'G' && type == PLAYER_T) && !(src->row == PLAYER_B && type == PLAYER_B) && board[src->row + 2 * typeFlag - 'A'][src->col + 2 - '1'] == ' '))
 			nextRightPos = createNewPos(src->row + 2 * typeFlag, src->col + 2);
 		//else we can't move
 		else
@@ -55,7 +55,7 @@ SingleSourceMovesTreeNode* FindSingleSourcesMovesHelper(Board board, checkersPos
 			nextLeftPos = createNewPos(src->row + typeFlag, src->col - 1);
 		//if 1 move to the left is enemy piece and space after it (make sure no edge after it), we can capture it
 		else if (board[src->row + typeFlag - 'A'][src->col - 1 - '1'] == otherType &&
-			(src->col != '2' && !(src->row == 'G' && type == 'T') && !(src->row == 'B' && type == 'B') && board[src->row + 2 * typeFlag - 'A'][src->col - 2 - '1'] == ' '))
+			(src->col != '2' && !(src->row == 'G' && type == PLAYER_T) && !(src->row == PLAYER_B && type == PLAYER_B) && board[src->row + 2 * typeFlag - 'A'][src->col - 2 - '1'] == ' '))
 			nextLeftPos = createNewPos(src->row + 2 * typeFlag, src->col - 2);
 		//else we can't move
 		else
@@ -84,7 +84,7 @@ SingleSourceMovesTreeNode* createNewNode(checkersPos* pos, Board board, unsigned
 }
 
 
-//typeFlag is 1 if type == 'T' and -1 if type == 'B'
+//typeFlag is 1 if type == PLAYER_T and -1 if type == PLAYER_B
 //sideFlag is 1 if called with left move, and -1 if called with right move
 void updateNextAndBoard(checkersPos* nextPos, SingleSourceMovesTreeNode** nextMove,
 	char type, Board board, unsigned short totalCapsSoFar, int typeFlag, int sideFlag) {
@@ -129,14 +129,14 @@ int getTreeHeight(SingleSourceMovesTreeNode* source) {
 }
 
 int getFlagType(char type) {
-	if (type == 'T')
+	if (type == PLAYER_T)
 		return TYPE_FLAG_T;
 	else
 		return TYPE_FLAG_B;
 }
 char getOtherType(char type) {
-	if (type == 'T')
-		return 'B';
+	if (type == PLAYER_T)
+		return PLAYER_B;
 	else
-		return 'T';
+		return PLAYER_T;
 }
