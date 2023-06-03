@@ -15,4 +15,6 @@ void Turn(Board board, Player player);
 void updateBoardWithMove(Board board, Player player, SingleSourceMovesList* movesList);
 int getSideFlag(int side);
 void PlayGame(Board board, Player starting_player);
+void updateStatistics(statistics* stats, int curBAmountCounter, int curTAmountCounter);
+void updateCurMove(Board board, Player player, checkersPos* curPos, checkersPos* newPos, int typeFlag, int sideFlag);
 #endif

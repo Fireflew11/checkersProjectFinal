@@ -1,7 +1,11 @@
 #include "MultipleSourceMoves.h"
+
+//This function checks if the list is empty;
 bool isEmptyMultiList(MultipleSourceMovesList* lst) {
 	return lst->head == NULL;
 }
+
+//This function makes an empty linked list;
 MultipleSourceMovesListCell* getEmptyMultiList() {
 	MultipleSourceMovesList* res = (MultipleSourceMovesList*)malloc(sizeof(MultipleSourceMovesList));
 	checkAllocation(res);
@@ -9,6 +13,7 @@ MultipleSourceMovesListCell* getEmptyMultiList() {
 	return res;
 }
 
+//This function creates a new node of "MultipleSourceMovesListCell" type;
 MultipleSourceMovesListCell* createNewMultiNode(SingleSourceMovesList* lst) {
 	MultipleSourceMovesListCell* res = (MultipleSourceMovesListCell*)malloc(sizeof(MultipleSourceMovesListCell));
 	checkAllocation(res);
@@ -16,6 +21,8 @@ MultipleSourceMovesListCell* createNewMultiNode(SingleSourceMovesList* lst) {
 	res->next = NULL;
 	return res;
 }
+
+//This function inserts a node to the end of the linked list;
 void insertMultiToEndList(MultipleSourceMovesList* lst, MultipleSourceMovesListCell* node) {
 	if (lst->head == NULL)
 		lst->head = lst->tail = node;
@@ -25,6 +32,7 @@ void insertMultiToEndList(MultipleSourceMovesList* lst, MultipleSourceMovesListC
 	}
 }
 
+//This function adds a tail to the list, if it was not updated;
 void addTailToList(SingleSourceMovesList* lst) {
 	SingleSourceMovesListCell* curCell = lst->head;
 
@@ -34,6 +42,7 @@ void addTailToList(SingleSourceMovesList* lst) {
 	lst->tail = curCell;
 }
 
+//This function frees the linked list;
 void freeMultiList(MultipleSourceMovesList* lst) {
 	MultipleSourceMovesListCell* curCell = lst->head;
 	while (curCell != NULL)
@@ -52,6 +61,7 @@ void freeMultiList(MultipleSourceMovesList* lst) {
 	free(lst);
 }
 
+//This function makes a list out of the best possible moves the player can make;
 MultipleSourceMovesList* FindAllPossiblePlayerMoves(Board board, Player player) {
 	MultipleSourceMovesList* res = getEmptyMultiList();
 	checkersPos* curPos;

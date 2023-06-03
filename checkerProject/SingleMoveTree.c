@@ -1,6 +1,9 @@
 #include "singleMoveTree.h"
 #include <stdbool.h>
+
+
 //col and row are 0-7 for comfort
+//This function checks allocation of data;
 void checkAllocation(void* ptr) {
 	if (ptr == NULL)
 	{
@@ -8,6 +11,8 @@ void checkAllocation(void* ptr) {
 		exit(1);
 	}
 }
+
+//This function creates and returns a tree of moves by using the function "FindSingleSourcesMovesHelper";
 SingleSourceMovesTree* FindSingleSourceMoves(Board board, checkersPos* src) {
 	SingleSourceMovesTree* res = NULL;
 	int row = src->row - 'A';
@@ -20,6 +25,8 @@ SingleSourceMovesTree* FindSingleSourceMoves(Board board, checkersPos* src) {
 	}
 	return res;
 }
+
+//This function builds and returns the tree of moves that a single player can play;
 SingleSourceMovesTreeNode* FindSingleSourcesMovesHelper(Board board, checkersPos* src, char type, unsigned short totalCapsSoFar) {
 	SingleSourceMovesTreeNode* nextMoveLeft = NULL, * nextMoveRight = NULL, * res;
 	checkersPos* nextLeftPos = NULL, * nextRightPos = NULL;
@@ -70,6 +77,7 @@ SingleSourceMovesTreeNode* FindSingleSourcesMovesHelper(Board board, checkersPos
 
 }
 
+//This function creates a new node of SingleSourceMovesTreeNode type;
 SingleSourceMovesTreeNode* createNewNode(checkersPos* pos, Board board, unsigned short total_caprures_so_far,
 	SingleSourceMovesTreeNode* nextmove0, SingleSourceMovesTreeNode* nextmove1)
 {
@@ -83,7 +91,7 @@ SingleSourceMovesTreeNode* createNewNode(checkersPos* pos, Board board, unsigned
 	return res;
 }
 
-
+//This function updates the board after everymove;
 //typeFlag is 1 if type == PLAYER_T and -1 if type == PLAYER_B
 //sideFlag is 1 if called with left move, and -1 if called with right move
 void updateNextAndBoard(checkersPos* nextPos, SingleSourceMovesTreeNode** nextMove,
@@ -109,6 +117,7 @@ void updateNextAndBoard(checkersPos* nextPos, SingleSourceMovesTreeNode** nextMo
 	}
 }
 
+//this function creates a position using row and col;
 checkersPos* createNewPos(char row, char col) {
 	checkersPos* res = (checkersPos*)malloc(sizeof(checkersPos));
 	checkAllocation(res);
@@ -117,23 +126,15 @@ checkersPos* createNewPos(char row, char col) {
 	return res;
 }
 
-int getTreeHeight(SingleSourceMovesTreeNode* source) {
-	if (source == NULL)
-		return -1;
-	else
-	{
-		int leftHeight = 1 + getTreeHeight(source->nextMove[0]);
-		int rightHeight = 1 + getTreeHeight(source->nextMove[1]);
-		return max(leftHeight, rightHeight);
-	}
-}
-
+// This function returns who is the player who is playing as a number;
 int getFlagType(char type) {
 	if (type == PLAYER_T)
 		return TYPE_FLAG_T;
 	else
 		return TYPE_FLAG_B;
 }
+
+//This function returns who is the other player that is not playing this turn;
 char getOtherType(char type) {
 	if (type == PLAYER_T)
 		return PLAYER_B;

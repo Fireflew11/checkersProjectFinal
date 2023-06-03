@@ -1,5 +1,7 @@
 #include "BoardFunctions.h"
 
+
+//This function copies the board everytime after we change it;
 void copyBoard(Board boardRes, Board boardfrom) {
 	for (int i = 0; i < BOARD_SIZE; i++)
 	{
@@ -9,6 +11,8 @@ void copyBoard(Board boardRes, Board boardfrom) {
 		}
 	}
 }
+
+//This function creates a new board;
 void createBoard(Board res) {
 	char curChar = PLAYER_T;
 	for (int i = 0; i < BOARD_SIZE; i++)
@@ -30,6 +34,8 @@ void createBoard(Board res) {
 		}
 	}
 }
+
+//This function draws the plus and minus lines;
 void drawPMLine() {
 	for (int i = 0; i < P_M_LINE; i++)
 	{
@@ -40,6 +46,8 @@ void drawPMLine() {
 	}
 	printf("\n");
 }
+
+//This function prints the board;
 void drawBoard(Board board) {
 
 	int rowCounter = 0;

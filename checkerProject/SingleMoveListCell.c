@@ -1,6 +1,7 @@
 #include <stdbool.h>
 #include "SingleMoveListCell.h"
 
+//This function creates a new linked list node;
 SingleSourceMovesListCell* createNewListNode(checkersPos* pos, unsigned short captures) {
 	SingleSourceMovesListCell* res = (SingleSourceMovesListCell*)malloc(sizeof(SingleSourceMovesListCell));
 	checkAllocation(res);
@@ -10,6 +11,7 @@ SingleSourceMovesListCell* createNewListNode(checkersPos* pos, unsigned short ca
 	return res;
 }
 
+//This function gets a linked list, and makes it an empty one;
 SingleSourceMovesList* getEmptyList() {
 	SingleSourceMovesList* res = (SingleSourceMovesList*)malloc(sizeof(SingleSourceMovesList));
 	checkAllocation(res);
@@ -17,6 +19,7 @@ SingleSourceMovesList* getEmptyList() {
 	return res;
 }
 
+//This function inserts a node to the end of the linked list;
 void insertNodeToEndList(SingleSourceMovesList* lst, SingleSourceMovesListCell* node) {
 	if (lst->tail != NULL) {
 		lst->tail->next = node;
@@ -26,6 +29,7 @@ void insertNodeToEndList(SingleSourceMovesList* lst, SingleSourceMovesListCell* 
 		lst->head = lst->tail = node;
 }
 
+//This function checks if the list that was given is empty or not;
 bool isEmptyList(SingleSourceMovesList* lst) {
 
 	if (lst->head == NULL)
@@ -35,6 +39,7 @@ bool isEmptyList(SingleSourceMovesList* lst) {
 
 }
 
+//This function insters data to the start of the linked list, by creating a node with the data that was provided;
 void insertDatatoStartList(SingleSourceMovesList* lst, SingleSourceMovesTreeNode* source) {
 
 	SingleSourceMovesListCell* newHead;
@@ -44,7 +49,7 @@ void insertDatatoStartList(SingleSourceMovesList* lst, SingleSourceMovesTreeNode
 
 }
 
-
+//This function inserts a node to the start of a linked list;
 void insertNodeToStartList(SingleSourceMovesList* lst, SingleSourceMovesListCell* node) {
 
 	if (isEmptyList(lst)) {
@@ -57,10 +62,10 @@ void insertNodeToStartList(SingleSourceMovesList* lst, SingleSourceMovesListCell
 		node->next = lst->head;
 		lst->head = node;
 
-
 	}
 }
 
+//This function builds a linked list that consists the optimal route a player can play;
 SingleSourceMovesList* FindSingleSourceOptimalMove(SingleSourceMovesTree* moves_tree) {
 	SingleSourceMovesList* res = getEmptyList();
 	int whatSide;
@@ -94,12 +99,12 @@ SingleSourceMovesList* FindSingleSourceOptimalMove(SingleSourceMovesTree* moves_
 			}
 			else {
 				if (player == PLAYER_T) { // go right according to the rule of the game (go closer to col 8) // if its the same amount of captures to each move, then go by rule.
-					res->head = FindSingleSourceOptimalMoveHelper(res, moves_tree->source->nextMove[1]);// maybe its the other way around
+					res->head = FindSingleSourceOptimalMoveHelper(res, moves_tree->source->nextMove[1]);
 					insertDatatoStartList(res, moves_tree->source); // inserting the "root" of the tree to be the first node in the list;
 					return res;
 				}
 				else { // go left according to the rule of the game (go closer to col 0)
-					res->head = FindSingleSourceOptimalMoveHelper(res, moves_tree->source->nextMove[0]); // maybe its the other way around
+					res->head = FindSingleSourceOptimalMoveHelper(res, moves_tree->source->nextMove[0]); 
 					insertDatatoStartList(res, moves_tree->source);// inserting the "root" of the tree to be the first node in the list;
 					return res;
 				}
@@ -110,6 +115,7 @@ SingleSourceMovesList* FindSingleSourceOptimalMove(SingleSourceMovesTree* moves_
 		return NULL;
 }
 
+//This function build a linked lists tha consists out of the optimal route that a player can play;
 SingleSourceMovesListCell* FindSingleSourceOptimalMoveHelper(SingleSourceMovesList* lst, SingleSourceMovesTreeNode* source) {
 
 	SingleSourceMovesListCell* leftPath, * rightPath, * newHead;
@@ -158,7 +164,6 @@ SingleSourceMovesListCell* FindSingleSourceOptimalMoveHelper(SingleSourceMovesLi
 	}
 }
 
-
 //The function tells us which sub tree is longer(has more levels to it);
 int whatPathToChoose(SingleSourceMovesTree* moves_tree) {
 
@@ -172,6 +177,23 @@ int whatPathToChoose(SingleSourceMovesTree* moves_tree) {
 	return res;
 }
 
+//The function tells us which sub tree is longer(has more levels to it);
+int whatPathToChooseHelper(SingleSourceMovesTreeNode* source) {
+	if (source == NULL)
+		return -1; // If the node is NULL, consider it as a balanced subtree.
+
+	int leftCount = countNodes(source->nextMove[0]);
+	int rightCount = countNodes(source->nextMove[1]);
+
+	if (rightCount > leftCount)
+		return 1; // If the right subtree is longer.
+	else if (leftCount > rightCount)
+		return 0; // If the left subtree is longer.
+	else
+		return -1; // If both sides have the same number of nodes.
+}
+
+//This function prints the linked list;
 void printList(SingleSourceMovesList* lst) {
 
 	SingleSourceMovesListCell* node;
@@ -198,7 +220,7 @@ char whichPlayer(checkersPos* pos, SingleSourceMovesTreeNode* source) {
 	return type;
 }
 
-
+//This function counts how many nodes are in a given tree;
 int countNodes(SingleSourceMovesTreeNode* node) {
 	if (node == NULL)
 		return 0;
@@ -207,19 +229,4 @@ int countNodes(SingleSourceMovesTreeNode* node) {
 	int rightCount = countNodes(node->nextMove[1]);
 
 	return leftCount + rightCount + 1;
-}
-
-int whatPathToChooseHelper(SingleSourceMovesTreeNode* source) {
-	if (source == NULL)
-		return -1; // If the node is NULL, consider it as a balanced subtree.
-
-	int leftCount = countNodes(source->nextMove[0]);
-	int rightCount = countNodes(source->nextMove[1]);
-
-	if (rightCount > leftCount)
-		return 1; // If the right subtree is longer.
-	else if (leftCount > rightCount)
-		return 0; // If the left subtree is longer.
-	else
-		return -1; // If both sides have the same number of nodes.
 }

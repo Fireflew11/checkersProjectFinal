@@ -1,11 +1,25 @@
-﻿  DamkaProjectMain.c
-C:\Users\Tom\Desktop\projFinalFinal\checkersProjectFinal\checkerProject\DamkaProjectMain.c(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\Tom\Desktop\projFinalFinal\checkersProjectFinal\checkerProject\DamkaProjectMain.c(36,15): warning C4101: 'pos': unreferenced local variable
-C:\Users\Tom\Desktop\projFinalFinal\checkersProjectFinal\checkerProject\DamkaProjectMain.c(34,25): warning C4101: 'lst': unreferenced local variable
-C:\Users\Tom\Desktop\projFinalFinal\checkersProjectFinal\checkerProject\DamkaProjectMain.c(35,25): warning C4101: 'tr': unreferenced local variable
+﻿  BoardFunctions.c
+  DamkaProjectMain.c
+C:\Users\USER\Source\Repos\finalChckers\checkersProjectFinal\checkerProject\DamkaProjectMain.c(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   MultipleSourceMoves.c
-C:\Users\Tom\Desktop\projFinalFinal\checkersProjectFinal\checkerProject\MultipleSourceMoves.c(9,12): warning C4133: 'return': incompatible types - from 'MultipleSourceMovesList *' to 'MultipleSourceMovesListCell *'
-C:\Users\Tom\Desktop\projFinalFinal\checkersProjectFinal\checkerProject\MultipleSourceMoves.c(56,1): warning C4133: 'initializing': incompatible types - from 'MultipleSourceMovesListCell *' to 'MultipleSourceMovesList *'
+C:\Users\USER\Source\Repos\finalChckers\checkersProjectFinal\checkerProject\MultipleSourceMoves.c(13,12): warning C4133: 'return': incompatible types - from 'MultipleSourceMovesList *' to 'MultipleSourceMovesListCell *'
+C:\Users\USER\Source\Repos\finalChckers\checkersProjectFinal\checkerProject\MultipleSourceMoves.c(66,1): warning C4133: 'initializing': incompatible types - from 'MultipleSourceMovesListCell *' to 'MultipleSourceMovesList *'
+  SingleMoveListCell.c
+C:\Users\USER\Source\Repos\finalChckers\checkersProjectFinal\checkerProject\SingleMoveListCell.c(80,53): warning C4133: 'function': incompatible types - from 'SingleSourceMovesList *' to 'SingleSourceMovesTreeNode *'
+C:\Users\USER\Source\Repos\finalChckers\checkersProjectFinal\checkerProject\SingleMoveListCell.c(85,53): warning C4133: 'function': incompatible types - from 'SingleSourceMovesList *' to 'SingleSourceMovesTreeNode *'
+C:\Users\USER\Source\Repos\finalChckers\checkersProjectFinal\checkerProject\SingleMoveListCell.c(90,75): warning C4047: 'function': 'SingleSourceMovesTreeNode *' differs in levels of indirection from 'Board'
+C:\Users\USER\Source\Repos\finalChckers\checkersProjectFinal\checkerProject\SingleMoveListCell.c(90,68): warning C4024: 'whichPlayer': different types for formal and actual parameter 2
+C:\Users\USER\Source\Repos\finalChckers\checkersProjectFinal\checkerProject\SingleMoveListCell.c(92,54): warning C4133: 'function': incompatible types - from 'SingleSourceMovesList *' to 'SingleSourceMovesTreeNode *'
+C:\Users\USER\Source\Repos\finalChckers\checkersProjectFinal\checkerProject\SingleMoveListCell.c(97,54): warning C4133: 'function': incompatible types - from 'SingleSourceMovesList *' to 'SingleSourceMovesTreeNode *'
+C:\Users\USER\Source\Repos\finalChckers\checkersProjectFinal\checkerProject\SingleMoveListCell.c(103,55): warning C4133: 'function': incompatible types - from 'SingleSourceMovesList *' to 'SingleSourceMovesTreeNode *'
+C:\Users\USER\Source\Repos\finalChckers\checkersProjectFinal\checkerProject\SingleMoveListCell.c(108,55): warning C4133: 'function': incompatible types - from 'SingleSourceMovesList *' to 'SingleSourceMovesTreeNode *'
+C:\Users\USER\Source\Repos\finalChckers\checkersProjectFinal\checkerProject\SingleMoveListCell.c(120,85): warning C4028: formal parameter 1 different from declaration
+C:\Users\USER\Source\Repos\finalChckers\checkersProjectFinal\checkerProject\SingleMoveListCell.c(164,37): warning C4133: 'function': incompatible types - from 'SingleSourceMovesTreeNode *' to 'SingleSourceMovesTree *'
+C:\Users\USER\Source\Repos\finalChckers\checkersProjectFinal\checkerProject\SingleMoveListCell.c(123,6): warning C4101: 'res': unreferenced local variable
+  SingleMoveTree.c
+C:\Users\USER\Source\Repos\finalChckers\checkersProjectFinal\checkerProject\SingleMoveTree.c(86,2): warning C4013: 'copyBoard' undefined; assuming extern returning int
   Turns.c
   Generating Code...
-  checkerProject.vcxproj -> C:\Users\Tom\Desktop\projFinalFinal\checkersProjectFinal\x64\Debug\checkerProject.exe
+C:\Users\USER\Source\Repos\finalChckers\checkersProjectFinal\checkerProject\SingleMoveListCell.c(166): warning C4715: 'FindSingleSourceOptimalMoveHelper': not all control paths return a value
+  LINK : C:\Users\USER\Source\Repos\finalChckers\checkersProjectFinal\x64\Debug\checkerProject.exe not found or not built by the last incremental link; performing full link
+  checkerProject.vcxproj -> C:\Users\USER\Source\Repos\finalChckers\checkersProjectFinal\x64\Debug\checkerProject.exe

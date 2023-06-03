@@ -12,8 +12,9 @@ typedef struct _multipleSourceMovesList {
 
 void insertMultiToEndList(MultipleSourceMovesList* lst, MultipleSourceMovesListCell* node);
 MultipleSourceMovesListCell* getEmptyMultiList();
-bool isEmptyMultyList(MultipleSourceMovesList* lst);
+bool isEmptyMultiList(MultipleSourceMovesList* lst);
 MultipleSourceMovesList* FindAllPossiblePlayerMoves(Board board, Player player);
 MultipleSourceMovesListCell* createNewMultiNode(SingleSourceMovesList* lst);
 void freeMultiList(MultipleSourceMovesList* lst);
+void addTailToList(SingleSourceMovesList* lst);
 #endif

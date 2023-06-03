@@ -1,3 +1,5 @@
+#ifndef __SINGLE_MOVE_LIST_CELL_H
+#define __SINGLE_MOVE_LIST_CELL_H
 #include "singleMoveTree.h"
 typedef struct _SingleSourceMovesListCell {
 	checkersPos* position;
@@ -15,10 +17,11 @@ void insertNodeToEndList(SingleSourceMovesList* lst, SingleSourceMovesListCell* 
 void insertNodeToStartList(SingleSourceMovesList* lst, SingleSourceMovesListCell* node);
 bool isEmptyList(SingleSourceMovesList* lst);
 SingleSourceMovesList* FindSingleSourceOptimalMove(SingleSourceMovesTree* moves_tree);
-SingleSourceMovesListCell* FindSingleSourceOptimalMoveHelper(SingleSourceMovesTreeNode* root);
+SingleSourceMovesListCell* FindSingleSourceOptimalMoveHelper(SingleSourceMovesTreeNode* root, SingleSourceMovesTreeNode* source);
 int whatPathToChoose(SingleSourceMovesTree* moves_tree);
 int whatPathToChooseHelper(SingleSourceMovesTreeNode* source);
 void printList(SingleSourceMovesList* lst);
 char whichPlayer(checkersPos* pos, SingleSourceMovesTreeNode* source);
 void insertDatatoStartList(SingleSourceMovesList* lst, SingleSourceMovesTreeNode* source);
 int countNodes(SingleSourceMovesTreeNode* node);
+#endif

@@ -34,12 +34,6 @@ SingleSourceMovesTreeNode* createNewNode(checkersPos* pos, Board board, unsigned
 void updateNextAndBoard(checkersPos* nextPos, SingleSourceMovesTreeNode** nextMove,
 	char type, Board board, unsigned short totalCapsSoFar, int typeFlag, int sideFlag);
 checkersPos* createNewPos(char row, char col);
-
-int getTreeHeight(SingleSourceMovesTreeNode* source);
-
 int getFlagType(char type);
 char getOtherType(char type);
-
-
-
 #endif

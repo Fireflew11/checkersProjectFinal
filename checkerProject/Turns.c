@@ -3,6 +3,7 @@
 #define RIGHT 1
 #define LEFT -1
 
+//This function plays the turn of the spesific player that was given;
 void Turn(Board board, Player player) {
 	MultipleSourceMovesList* multiList = FindAllPossiblePlayerMoves(board, player);
 	MultipleSourceMovesListCell* bestCell = multiList->head, * curCell = multiList->head->next;
@@ -29,6 +30,7 @@ void Turn(Board board, Player player) {
 	freeMultiList(multiList);
 }
 
+//This function updates the current move(who's playing and what he is doing in this turn according to the rules of the game);
 void updateCurMove(Board board, Player player, checkersPos* curPos, checkersPos* newPos, int typeFlag, int sideFlag) {
 	board[newPos->row - 'A'][newPos->col - '1'] = player;
 	board[curPos->row - 'A'][curPos->col - '1'] = ' ';
@@ -36,6 +38,8 @@ void updateCurMove(Board board, Player player, checkersPos* curPos, checkersPos*
 		board[curPos->row + typeFlag - 'A'][curPos->col + sideFlag - '1'] = ' ';
 
 }
+
+//This  function returns what side is playing now(top or bottom);
 int getSideFlag(int side) {
 	if (side > 0)
 		return RIGHT;
@@ -43,6 +47,7 @@ int getSideFlag(int side) {
 		return LEFT;
 }
 
+//This function updates the board with the new move that was played;
 //list size is at least 2 (minimum of head currentPostion and tail the wanted move)
 void updateBoardWithMove(Board board, Player player, SingleSourceMovesList* movesList) {
 	SingleSourceMovesListCell* curCell = movesList->head;
@@ -58,6 +63,7 @@ void updateBoardWithMove(Board board, Player player, SingleSourceMovesList* move
 	}
 }
 
+//This function updates the statistics of the game after a move was played;
 void updateStatistics(statistics * stats, int curBAmountCounter, int curTAmountCounter) {
 	int curMaxB = stats->curBPiecesAmount - curBAmountCounter;
 	int curMaxT = stats->curTPiecesAmount - curTAmountCounter;
@@ -74,6 +80,7 @@ void updateStatistics(statistics * stats, int curBAmountCounter, int curTAmountC
 	stats->curTPiecesAmount = curTAmountCounter;
 }
 
+//This function is the "main" function of the game, it plays a game untill there is a winner, using all the other function that we wrote;
 void PlayGame(Board board, Player starting_player) {
 	statistics stats;
 	stats.bMoves = stats.maxCaps = stats.tMoves = 0;
